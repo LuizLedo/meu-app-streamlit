@@ -55,3 +55,11 @@ entrada = pd.DataFrame({
 dosagem = modelo.predict(entrada)[0]
 
 st.metric("Dosagem Ótima",f"{round(dosagem,2)} mg/L")
+importances = modelo.feature_importances_
+
+fig, ax = plt.subplots()
+ax.bar(X.columns, importances)
+
+st.subheader("Importância das Variáveis no Modelo")
+st.pyplot(fig)
+
